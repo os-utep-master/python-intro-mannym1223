@@ -1,6 +1,6 @@
 import re
 with open("declaration.txt", "r") as countFile:
-    data = re.sub(r"^\w", "", countFile.read().lower()).split()
+    data = re.sub(r'[^\w\s]', "", countFile.read().lower()).split()
 
 wordCounts = {}
 
