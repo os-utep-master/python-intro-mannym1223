@@ -1,11 +1,26 @@
 import re
+import os
+import sys
+import string
+# set input and output files
+if len(sys.argv) != 3:
+    print("Correct usage: wordCount.py <input text file> <output file>")
+    exit()
+
+inputFname = sys.argv[1]
+outputFname = sys.argv[2]
+
+#make sure text file exists
+if not os.path.exists(inputFname):
+    print ("text file input %s doesn't exist! Exiting" % inputFname)
+    exit()
 
 with open("declaration.txt", "r") as countFile:
     #reads entire file as a string
     #converts all characters to lowercase
     #removes all punctuation from the string
     #splits string into separate words
-    data = re.sub(r'[^\w\s]', "", countFile.read().lower()).split()
+    data = re.sub(r'[^\w]', " ", countFile.read().lower()).split()
 
 wordCounts = {}
 
