@@ -6,7 +6,7 @@ wordCounts = {}
 
 for word in data:
     if word not in wordCounts.keys():
-        wordCounts.update({word : 1})
+        wordCounts.update({word : 0})
     wordCounts[word] += 1
 
 with open("output.txt", "w") as outputFile:
