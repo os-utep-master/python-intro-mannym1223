@@ -1,4 +1,5 @@
 import re
+
 with open("declaration.txt", "r") as countFile:
     #reads entire file as a string
     #converts all characters to lowercase
