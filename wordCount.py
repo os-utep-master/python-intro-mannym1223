@@ -15,12 +15,12 @@ if not os.path.exists(inputFname):
     print ("text file input %s doesn't exist! Exiting" % inputFname)
     exit()
 
-with open("declaration.txt", "r") as countFile:
+with open(inputFname, "r") as countFile:
     #reads entire file as a string
     #converts all characters to lowercase
     #removes all punctuation from the string
     #splits string into separate words
-    data = re.sub(r'[^\w]', " ", countFile.read().lower()).split()
+    data = re.sub(r'[^\w\s]', " ", countFile.read().lower()).split()
 
 wordCounts = {}
 
@@ -33,6 +33,6 @@ for word in data:
 #sort all the words alphabetically
 sortedWords = sorted(wordCounts.keys())
 
-with open("output.txt", "w") as outputFile:
+with open(outputFname, "w") as outputFile:
     for word in sortedWords:
         outputFile.write(word + " " + str(wordCounts[word]) + "\n")
